@@ -1,0 +1,17 @@
+.content {
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
+  background-color: white;
+}
+
+.user {
+  font-size: 14px;
+  color: white;
+  padding: 0 20px 0 3px;
+}
+
+tr {
+  height: 34px;
+}

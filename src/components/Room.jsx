@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Message from './Message'
 import firebase from '../firebase/firebase'
+import classes from '../css/Room.module.css'
 
 const Room = () => {
   const [messages, setMessages] = useState([])
@@ -45,27 +46,31 @@ const Room = () => {
 
   return (
     <>
-      <h1>Chat Room</h1>
-      <div>
-        <table>
-          {
-            messages.map(element => {
-              return(
-                <Message ele={element} />
-              )
-            })
-          }
-        </table>
+      <h1 className={classes.title}>Chat Room</h1>
+      <div className={classes.container}>
+        <div className={classes.chatArea}>
+          <table className={classes.chatBalloon} >
+            {
+              messages.map(element => {
+                return(
+                  <Message ele={element} />
+                )
+              })
+            }
+          </table>
+        </div>
+        <div className={classes.messageArea}>
+          <form onSubmit={handleSubmit} >
+            <input
+              type="text"
+              value={value}
+              onChange={e => setValue(e.target.value)}
+              />
+            <button type="submit">送信</button>
+          </form>
+        </div>
+        <button onClick={() => firebase.auth().signOut()}>ログアウト</button>
       </div>
-      <form onSubmit={handleSubmit} >
-        <input
-          type="text"
-          value={value}
-          onChange={e => setValue(e.target.value)}
-        />
-        <button type="submit">送信</button>
-      </form>
-      <button onClick={() => firebase.auth().signOut()}>ログアウト</button>
     </>
   )
 }

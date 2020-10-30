@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* chat蘭の左右表示切替用class */
+.chat {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.chatReverse {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 2px;
+}

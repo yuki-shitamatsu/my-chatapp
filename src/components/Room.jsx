@@ -38,7 +38,7 @@ const Room = () => {
       const sendObj = {
           content: value,
           user: userName,
-          // id: firebase.auth().currentUser.uid,
+          id: firebase.auth().currentUser.uid,
           createDate: firebase.firestore.FieldValue.serverTimestamp()
       }
       firebase.firestore().collection('messages').add(sendObj)
@@ -47,7 +47,7 @@ const Room = () => {
 
   return (
     <>
-      <h1 className={classes.title}>Chat Room</h1>
+      {/* <h1 className={classes.title}>Chat Room</h1> */}
       <div className={classes.container}>
         <div className={classes.chatArea}>
           <ul className={classes.chatBalloon} >

@@ -2,6 +2,7 @@
 import React from 'react'
 import firebase from '../firebase/firebase'
 import classes from '../css/Message.module.css'
+import NoProfile from '../assets/img/no-profile.png'
 
 const Message = (props) => {
   const uid = props.ele.id;
@@ -10,8 +11,11 @@ const Message = (props) => {
   
   return (
     <li className={chatClass}>
-      <div className={classes.user}>{props.ele.user}</div>
-      <div className={classes.content}>{props.ele.content}</div>
+      <img className={classes.img} alt="icon" src={NoProfile} />
+      <div>
+        <div className={classes.user}>{props.ele.user}</div>
+        <div className={classes.content}>{props.ele.content}</div>
+      </div>
     </li>
   )
 }

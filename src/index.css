@@ -26,3 +26,13 @@ code {
   align-items: center;
   margin-bottom: 2px;
 }
+
+.chat img {
+  display: none;
+}
+.chat div:first-child {
+  display: none;
+}
+.chat .Message_content__2zWNY {
+  background: rgb(93, 230, 150);
+}

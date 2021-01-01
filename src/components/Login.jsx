@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import { AuthContext } from '../AuthService';
 import firebase from '../firebase/firebase';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import classes from '../css/Login.module.css'
 
 const Login = (history) => {
@@ -28,35 +28,40 @@ const Login = (history) => {
   return (
     <>
       <h1 className={classes.title}>CHAT APP</h1>
-      <div className={classes.formBox}>
-        <h1 className={classes.formTitle}>Login</h1>
-        <form onSubmit={hundleSubmit}>
-          <div>
-            <label htmlFor='email'>E-mail</label>
-            <p className={classes.mail}><input 
-              type='email'
-              id='email'
-              name='email'
-              placeholder='Email'
-              onChange={e=>{
-                setEmail(e.target.value)
-              }}
-            /></p>
-          </div>
-          <div>
-            <label htmlFor='password'>Password</label>
-            <p className={classes.pass}><input 
-              type='password'
-              id='password'
-              name='password'
-              placeholder='Password'
-              onChange={e=>{
-                setPassword(e.target.value)
-              }}
-            /></p>
-          </div>
-          <p className={classes.submit}><button type='submit'>Login</button></p>
-        </form>
+      <div className={classes.container}>
+        <div className={classes.formBox}>
+          <h1 className={classes.formTitle}>Login</h1>
+          <form onSubmit={hundleSubmit}>
+            <div>
+              <label htmlFor='email'>E-mail</label>
+              <p className={classes.mail}><input 
+                type='email'
+                id='email'
+                name='email'
+                placeholder='Email'
+                onChange={e=>{
+                  setEmail(e.target.value)
+                }}
+              /></p>
+            </div>
+            <div>
+              <label htmlFor='password'>Password</label>
+              <p className={classes.pass}><input 
+                type='password'
+                id='password'
+                name='password'
+                placeholder='Password'
+                onChange={e=>{
+                  setPassword(e.target.value)
+                }}
+              /></p>
+            </div>
+            <p className={classes.submit}><button type='submit'>Login</button></p>
+          </form>
+        </div>
+        <Link to="/signup" className={classes.linkTo}>
+          <button className={classes.toSignUpButton}>アカウント作成はこちら</button>
+        </Link>
       </div>
     </>
   )

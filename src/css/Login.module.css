@@ -5,9 +5,13 @@
   margin-bottom: 0;
 }
 
+.container {
+  width: 60%;
+  margin: 30px auto;
+}
+
 .formBox {
-  width: 400px;
-  margin: 54px auto;
+  margin: 54px auto 10px;
   padding: 20px;
   border-radius: 6px;
   box-shadow: 0px 1px 10px #488a9e;
@@ -63,4 +67,25 @@ input[type="password"] {
   background: #cfd8df;
   background-image: linear-gradient(to bottom, #a5d9fc, #80b1d1);
   text-decoration: none;
+}
+
+.toSignUpButton {
+  font-size: 14px;
+  margin: 0 0 0 auto;
+  display: block;
+	padding: 0.2em 0.4em;
+	color: #4eb4c2;
+	border: none;
+	border-radius: 3px;
+	transition: .4s;
+  background: #fff;
+}
+
+.toSignUpButton:hover {
+  background: #4eb4c2;
+	color: #fff;
+}
+
+.linkTo {
+	text-decoration: none;
 }

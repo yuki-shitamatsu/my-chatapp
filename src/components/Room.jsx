@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Message from './Message'
 import firebase from '../firebase/firebase'
 import classes from '../css/Room.module.css'
 
-const Room = () => {
+const Room = ({room}) => {
   const [messages, setMessages] = useState([])
   const [value, setValue] = useState('')
 
@@ -45,12 +45,22 @@ const Room = () => {
       setValue("")
   }
 
+// 自動スクロール
+  useEffect(() => {
+    const scrollArea = document.getElementById('scroll-area');
+    if (scrollArea) {
+      scrollArea.scrollTop = scrollArea.scrollHeight;
+    }
+  }, [messages])
+
   return (
     <>
-      {/* <h1 className={classes.title}>Chat Room</h1> */}
       <div className={classes.container}>
-        <div className={classes.chatArea}>
-          <ul className={classes.chatBalloon} >
+        <div className={classes.logoutContainer}>
+          <button className={classes.logoutButton} onClick={() => firebase.auth().signOut()}>ログアウト</button>
+        </div>
+        <div className={classes.chatArea} id={"scroll-area"}>
+          <ul>
             {
               messages.map(element => {
                 return(
@@ -70,7 +80,7 @@ const Room = () => {
             <button type="submit">送信</button>
           </form>
         </div>
-        <button onClick={() => firebase.auth().signOut()}>ログアウト</button>
+        
       </div>
     </>
   )

@@ -10,7 +10,7 @@ const Message = (props) => {
   const chatClass = isUser ? 'chat' : 'chatReverse';
   
   return (
-    <li className={chatClass}>
+    <li className={chatClass} >
       <img className={classes.img} alt="icon" src={NoProfile} />
       <div>
         <div className={classes.user}>{props.ele.user}</div>

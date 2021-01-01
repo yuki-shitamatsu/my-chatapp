@@ -8,8 +8,19 @@ import './App.css';
 import {Login, SignUp, Room} from './components/index';
 import {AuthProvider} from './AuthService'
 import LoggedInRoute from './LoggedInRoute'
+import { useEffect } from 'react';
 
 function App() {
+
+  // componentDidUpdate() {
+  //   const scrollArea = document.getElementById('scroll-area')
+  //   if(scrollArea) {
+  //     scrollArea.scrollTop = scrollArea.scrollHeight
+  //   }
+  // }
+
+  
+
   return (
     <AuthProvider>
       <Router>

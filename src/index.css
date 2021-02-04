@@ -14,6 +14,7 @@ code {
 
 /* chat蘭の左右表示切替用class */
 .chat {
+  padding-bottom: 0.5rem;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
@@ -21,6 +22,7 @@ code {
 }
 
 .chatReverse {
+  padding-bottom: 0.5rem;
   display: flex;
   flex-direction: row;
   align-items: center;

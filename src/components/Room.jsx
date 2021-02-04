@@ -1,7 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import Message from './Message'
 import firebase from '../firebase/firebase'
 import classes from '../css/Room.module.css'
+import shortid from 'shortid'
 
 const Room = ({room}) => {
   const [messages, setMessages] = useState([])
@@ -9,17 +10,10 @@ const Room = ({room}) => {
 
   useEffect(() => {
     firebase.firestore().collection('messages').orderBy("createDate", "asc").onSnapshot((snapshot) => {
-        // const messages = snapshot.docs.map(doc => {
-        //   return doc.data()
-        // })
-        // setMessages(messages)
-        // ↑ setValueしても再描画されないReactのバグ
-        
-        // ↓ 再描画されない症状の回避方法
         const messageArray = []
         snapshot.forEach(doc => {
           messageArray.push({
-            ...doc.data(), docId:doc.id
+            ...doc.data(), docId:doc.id, uniqueid:shortid.generate()
           })
         })
         const newArray = Object.assign([], messageArray)
@@ -62,9 +56,9 @@ const Room = ({room}) => {
         <div className={classes.chatArea} id={"scroll-area"}>
           <ul>
             {
-              messages.map(element => {
+              messages.map((element) => {
                 return(
-                  <Message ele={element} />
+                  <Message ele={element} key={element.uniqueid}/>
                 )
               })
             }

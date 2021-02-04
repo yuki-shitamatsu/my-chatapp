@@ -4,7 +4,7 @@ import firebase from '../firebase/firebase';
 import { Redirect, Link } from 'react-router-dom';
 import classes from '../css/Login.module.css'
 
-const Login = (history) => {
+const Login = ({history}) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -58,10 +58,10 @@ const Login = (history) => {
             </div>
             <p className={classes.submit}><button type='submit'>Login</button></p>
           </form>
-        </div>
         <Link to="/signup" className={classes.linkTo}>
-          <button className={classes.toSignUpButton}>アカウント作成はこちら</button>
+          アカウント作成はこちら
         </Link>
+        </div>
       </div>
     </>
   )

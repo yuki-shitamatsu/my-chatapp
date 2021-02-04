@@ -8,7 +8,6 @@ import './App.css';
 import {Login, SignUp, Room} from './components/index';
 import {AuthProvider} from './AuthService'
 import LoggedInRoute from './LoggedInRoute'
-import { useEffect } from 'react';
 
 function App() {
 

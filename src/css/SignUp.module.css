@@ -57,10 +57,30 @@ input[type="name"] {
   font-size: 20px;
   padding: 6px 13px 6px 13px;
   text-decoration: none;
+  outline: none;
 }
 
 .submit button:hover {
   background: #cfd8df;
   background-image: linear-gradient(to bottom, #a5d9fc, #80b1d1);
   text-decoration: none;
+}
+
+.linkTo {
+  text-decoration: none;
+  width: 140px;
+  font-size: 14px;
+  margin: 0 0 0 auto;
+  display: block;
+	padding: 0.2em 0.4em;
+	color: #4eb4c2;
+	border: none;
+	border-radius: 3px;
+	transition: .4s;
+  background: #fafafa;
+}
+
+.linkTo:hover {
+  background: #4eb4c2;
+	color: #fafafa;
 }
